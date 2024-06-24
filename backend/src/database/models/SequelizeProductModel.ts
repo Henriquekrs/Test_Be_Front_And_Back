@@ -49,6 +49,7 @@ SequelizeProductModel.init(
     sequelize: db,
     modelName: 'products',
     underscored: false,
+    timestamps: false,
   }
 );
 

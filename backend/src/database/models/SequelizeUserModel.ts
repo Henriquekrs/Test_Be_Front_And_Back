@@ -16,8 +16,6 @@ class SequelizeUserModel extends Model<
   declare email: string;
 
   declare password: string;
-
-  declare clientId: number;
 }
 
 SequelizeUserModel.init(
@@ -37,15 +35,12 @@ SequelizeUserModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    clientId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
   },
   {
     sequelize: db,
     modelName: 'users',
     underscored: true,
+    timestamps: false,
   }
 );
 

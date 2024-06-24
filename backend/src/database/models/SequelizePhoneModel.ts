@@ -6,7 +6,6 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
-import SequelizeClientModel from './SequelizeClientModel';
 
 class SequelizePhoneModel extends Model<
   InferAttributes<SequelizePhoneModel>,
@@ -40,6 +39,7 @@ SequelizePhoneModel.init(
     sequelize: db,
     modelName: 'phones',
     underscored: true,
+    timestamps: false,
   }
 );
 

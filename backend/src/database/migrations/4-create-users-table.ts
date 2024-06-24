@@ -18,16 +18,6 @@ export default {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      clientId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'clients',
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-      },
     });
   },
   down(queryInterface: QueryInterface) {

@@ -5,7 +5,6 @@ import {
   InferCreationAttributes,
 } from 'sequelize';
 import db from '.';
-import SequelizeClientModel from './SequelizeClientModel';
 
 class SequelizeSalesModel extends Model<
   InferAttributes<SequelizeSalesModel>,
@@ -56,6 +55,7 @@ SequelizeSalesModel.init(
     sequelize: db,
     modelName: 'sales',
     underscored: true,
+    timestamps: false,
   }
 );
 

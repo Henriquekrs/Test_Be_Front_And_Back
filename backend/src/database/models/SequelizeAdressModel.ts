@@ -6,7 +6,6 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
-import SequelizeClientModel from './SequelizeClientModel';
 
 class SequelizeAdressModel extends Model<
   InferAttributes<SequelizeAdressModel>,
@@ -64,6 +63,7 @@ SequelizeAdressModel.init(
     sequelize: db,
     modelName: 'adress',
     underscored: true,
+    timestamps: false,
   }
 );
 

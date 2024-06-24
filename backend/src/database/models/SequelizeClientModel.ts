@@ -6,7 +6,6 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
-import { HasMany } from 'sequelize-typescript';
 
 import SequelizeAdressModel from './SequelizeAdressModel';
 import SequelizePhoneModel from './SequelizePhoneModel';
@@ -46,6 +45,7 @@ SequelizeClientModel.init(
     sequelize: db,
     modelName: 'clients',
     underscored: false,
+    timestamps: false,
   }
 );
 
@@ -70,14 +70,6 @@ SequelizeClientModel.hasMany(SequelizeSalesModel, {
   as: 'vendas',
 });
 SequelizeSalesModel.belongsTo(SequelizeClientModel, {
-  foreignKey: 'id',
-  as: 'cliente',
-});
-SequelizeClientModel.hasOne(SequelizeUserModel, {
-  foreignKey: 'clientId',
-  as: 'usuario',
-});
-SequelizeUserModel.belongsTo(SequelizeClientModel, {
   foreignKey: 'id',
   as: 'cliente',
 });
