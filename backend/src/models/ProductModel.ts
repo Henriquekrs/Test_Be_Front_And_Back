@@ -9,8 +9,9 @@ export default class ProductModel implements IProductModel {
     try {
       const dbData = await this.model.findAll({
         order: [['nome', 'ASC']],
-        attributes: { exclude: ['id'] },
+        attributes: { exclude: ['id', 'deletedAt', 'createdAt', 'updatedAt'] },
       });
+      console.log(dbData);
       return dbData;
     } catch (error) {
       return null;
@@ -20,7 +21,7 @@ export default class ProductModel implements IProductModel {
   async getById(productId: string): Promise<IProduct | null> {
     try {
       const dbData = await this.model.findByPk(productId, {
-        attributes: { exclude: ['id'] },
+        attributes: { exclude: ['id', 'deletedAt', 'createdAt', 'updatedAt'] },
       });
       return dbData;
     } catch (error) {
@@ -31,7 +32,8 @@ export default class ProductModel implements IProductModel {
   async create(product: IProduct): Promise<IProduct | null> {
     try {
       const dbData = await this.model.create(product);
-      return dbData;
+      const { id, nome, descricao, preco } = dbData.get({ plain: true });
+      return { id, nome, descricao, preco };
     } catch (error) {
       return null;
     }
@@ -41,11 +43,20 @@ export default class ProductModel implements IProductModel {
     try {
       await this.model.update(product, { where: { id } });
       const dbData = await this.model.findByPk(id, {
-        attributes: { exclude: ['id'] },
+        attributes: { exclude: ['id', 'deletedAt', 'createdAt', 'updatedAt'] },
       });
       return dbData;
     } catch (error) {
       return null;
+    }
+  }
+
+  async delete(id: string): Promise<boolean> {
+    try {
+      await this.model.destroy({ where: { id } });
+      return true;
+    } catch (error) {
+      return false;
     }
   }
 }

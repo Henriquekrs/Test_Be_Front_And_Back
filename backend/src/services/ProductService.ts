@@ -2,6 +2,7 @@ import { IProduct } from '../interfaces/IProduct';
 import ProductModel from '../models/ProductModel';
 import {
   ServiceResponse,
+  ServiceResponseDelete,
   ServiceResponseError,
   ServiceResponseSuccess,
 } from '../types/ServiceResponse';
@@ -92,6 +93,31 @@ export default class ProductService {
       const response: ServiceResponseSuccess<IProduct> = {
         status: 'SUCCESSFUL',
         data: updatedProduct,
+      };
+      return response;
+    } catch (error) {
+      const response: ServiceResponseError = {
+        status: 'BAD_REQUEST',
+        data: { message: 'Error internal' },
+      };
+      return response;
+    }
+  }
+
+  async delete(
+    productId: string
+  ): Promise<ServiceResponse<ServiceResponseDelete>> {
+    try {
+      const product = await this.productModel.delete(productId);
+      if (!product) {
+        return {
+          status: 'BAD_REQUEST',
+          data: { message: 'Data not deleted' },
+        };
+      }
+      const response: ServiceResponseSuccess<ServiceResponseDelete> = {
+        status: 'SUCCESSFUL',
+        data: { message: 'Data successful deleted' },
       };
       return response;
     } catch (error) {

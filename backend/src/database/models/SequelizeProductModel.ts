@@ -19,6 +19,8 @@ class SequelizeProductModel extends Model<
   declare descricao: string;
 
   declare preco: string;
+
+  declare deletedAt: Date | null;
 }
 
 SequelizeProductModel.init(
@@ -44,12 +46,17 @@ SequelizeProductModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    deletedAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   },
   {
     sequelize: db,
     modelName: 'products',
     underscored: false,
-    timestamps: false,
+    paranoid: true,
+    timestamps: true,
   }
 );
 

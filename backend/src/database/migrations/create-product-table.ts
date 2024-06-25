@@ -24,6 +24,21 @@ export default {
         type: DataTypes.STRING,
         allowNull: false,
       },
+
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
     });
   },
   down(queryInterface: QueryInterface) {

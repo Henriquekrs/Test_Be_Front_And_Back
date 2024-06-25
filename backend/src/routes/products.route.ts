@@ -21,4 +21,8 @@ router.put('/:id', (req: Request, res: Response) =>
   productController.update(req, res)
 );
 
+router.delete('/:id', (req: Request, res: Response) =>
+  productController.delete(req, res)
+);
+
 export default router;
