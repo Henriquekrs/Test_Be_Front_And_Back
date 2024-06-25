@@ -77,4 +77,29 @@ export default class ProductService {
       return response;
     }
   }
+  async update(
+    id: string,
+    product: IProduct
+  ): Promise<ServiceResponse<IProduct>> {
+    try {
+      const updatedProduct = await this.productModel.update(id, product);
+      if (!updatedProduct) {
+        return {
+          status: 'BAD_REQUEST',
+          data: { message: 'Data not updated' },
+        };
+      }
+      const response: ServiceResponseSuccess<IProduct> = {
+        status: 'SUCCESSFUL',
+        data: updatedProduct,
+      };
+      return response;
+    } catch (error) {
+      const response: ServiceResponseError = {
+        status: 'BAD_REQUEST',
+        data: { message: 'Error internal' },
+      };
+      return response;
+    }
+  }
 }

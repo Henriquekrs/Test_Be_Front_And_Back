@@ -36,4 +36,16 @@ export default class ProductModel implements IProductModel {
       return null;
     }
   }
+
+  async update(id: string, product: IProduct): Promise<IProduct | null> {
+    try {
+      await this.model.update(product, { where: { id } });
+      const dbData = await this.model.findByPk(id, {
+        attributes: { exclude: ['id'] },
+      });
+      return dbData;
+    } catch (error) {
+      return null;
+    }
+  }
 }

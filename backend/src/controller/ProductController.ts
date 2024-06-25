@@ -39,4 +39,17 @@ export default class ProductController {
       res.status(400).json({ message: 'Data not found' });
     }
   }
+
+  async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const product = req.body;
+    try {
+      const serviceResponse = await this.productService.update(id, product);
+      return res
+        .status(mapStatusHTTP(serviceResponse.status))
+        .json(serviceResponse.data);
+    } catch (error) {
+      res.status(400).json({ message: 'Data not found' });
+    }
+  }
 }
