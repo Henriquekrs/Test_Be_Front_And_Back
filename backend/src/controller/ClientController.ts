@@ -24,7 +24,6 @@ export default class ClientController {
       const clientId = parseInt(id, 10);
       const monthNumber = month ? parseInt(month as string, 10) : undefined;
       const yearNumber = year ? parseInt(year as string, 10) : undefined;
-      console.log(clientId, 'controller');
 
       const serviceResponse = await this.clientService.getById(
         clientId,
@@ -36,6 +35,18 @@ export default class ClientController {
         .json(serviceResponse.data);
     } catch (error) {
       res.status(400).json({ message: 'Client not found' });
+    }
+  }
+
+  async create(req: Request, res: Response) {
+    try {
+      const clientData = req.body;
+      const serviceResponse = await this.clientService.create(clientData);
+      return res
+        .status(mapStatusHTTP(serviceResponse.status))
+        .json(serviceResponse.data);
+    } catch (error) {
+      res.status(400).json({ message: 'Client not create' });
     }
   }
 }

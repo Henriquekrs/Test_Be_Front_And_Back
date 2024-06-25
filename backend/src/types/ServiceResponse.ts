@@ -3,6 +3,26 @@ export type CreatedUser = {
   password: string;
 };
 
+export type Adress = {
+  rua: string;
+  cidade: string;
+  estado: string;
+  cep: string;
+  pais: string;
+};
+
+export type Phones = {
+  numero: string;
+};
+
+export type CreateClientResponse = {
+  id: number;
+  name: string;
+  cpf: string;
+  enderecos?: Adress[] | undefined;
+  telefones?: Phones[] | undefined;
+};
+
 export type ClientResponse = {
   name: string;
   cpf: string;

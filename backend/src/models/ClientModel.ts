@@ -1,8 +1,12 @@
 import SequelizeClientModel from '../database/models/SequelizeClientModel';
 import SequelizeSalesModel from '../database/models/SequelizeSalesModel';
-import { IClient } from '../interfaces/IClient';
+import { IClient, ICreateClientParams } from '../interfaces/IClient';
 import { IClientModel } from '../interfaces/IClientModel';
 import { Op } from 'sequelize';
+import db from '../database/models';
+import SequelizeAdressModel from '../database/models/SequelizeAdressModel';
+import SequelizePhoneModel from '../database/models/SequelizePhoneModel';
+import { CreateClientResponse } from '../types/ServiceResponse';
 
 export default class ClientModel implements IClientModel {
   private model = SequelizeClientModel;
@@ -16,7 +20,11 @@ export default class ClientModel implements IClientModel {
     }
   }
 
-  async getById(clientId: number, month?: number, year?: number) {
+  async getById(
+    clientId: number,
+    month?: number,
+    year?: number
+  ): Promise<IClient | null> {
     const whereCondition: any = {};
 
     if (month && year) {
@@ -52,6 +60,61 @@ export default class ClientModel implements IClientModel {
     } catch (error) {
       console.error('Error in ClientModel.getById:', error);
       return null;
+    }
+  }
+
+  async create(
+    clientData: ICreateClientParams
+  ): Promise<CreateClientResponse | undefined | null> {
+    const transaction = await db.transaction();
+    try {
+      const dbClient = await this.model.create(
+        {
+          name: clientData.name,
+          cpf: clientData.cpf,
+        },
+        { transaction }
+      );
+
+      await SequelizeAdressModel.create(
+        {
+          ...clientData.address,
+          clientId: dbClient.id,
+        },
+        { transaction }
+      );
+
+      for (const phone of clientData.phones) {
+        await SequelizePhoneModel.create(
+          {
+            numero: phone,
+            clientId: dbClient.id,
+          },
+          { transaction }
+        );
+      }
+
+      await transaction.commit();
+
+      const fullClient = await this.model.findByPk(dbClient.id, {
+        include: [
+          {
+            model: SequelizeAdressModel,
+            as: 'enderecos',
+            attributes: ['rua', 'cidade', 'estado', 'cep', 'pais'],
+          },
+          {
+            model: SequelizePhoneModel,
+            as: 'telefones',
+            attributes: ['numero'],
+          },
+        ],
+      });
+
+      return fullClient;
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
     }
   }
 }

@@ -62,6 +62,7 @@ SequelizeAdressModel.init(
   {
     sequelize: db,
     modelName: 'adress',
+    tableName: 'adress',
     underscored: true,
     timestamps: false,
   }

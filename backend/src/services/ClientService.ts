@@ -1,3 +1,4 @@
+import { IClient } from '../interfaces/IClient';
 import ClientModel from '../models/ClientModel';
 import {
   ClientResponse,
@@ -32,11 +33,37 @@ export default class ClientService {
     }
   }
 
-  async getById(clientId: number, month?: number, year?: number) {
+  async getById(
+    clientId: number,
+    month?: number,
+    year?: number
+  ): Promise<ServiceResponse<IClient>> {
     try {
-      console.log(clientId, 'Service');
-
       const client = await this.clientModel.getById(clientId, month, year);
+      if (!client) {
+        return {
+          status: 'BAD_REQUEST',
+          data: { message: 'Client not found' },
+        };
+      }
+      const response: ServiceResponseSuccess<IClient> = {
+        status: 'SUCCESSFUL',
+        data: client,
+      };
+      return response;
+    } catch (error) {
+      console.error('Error in ClientService.getById:', error);
+      const response: ServiceResponseError = {
+        status: 'BAD_REQUEST',
+        data: { message: 'Error search client' },
+      };
+      return response;
+    }
+  }
+
+  async create(clientData: any) {
+    try {
+      const client = await this.clientModel.create(clientData);
       if (!client) {
         return {
           status: 'BAD_REQUEST',
@@ -49,10 +76,10 @@ export default class ClientService {
       };
       return response;
     } catch (error) {
-      console.error('Error in ClientService.getById:', error);
+      console.log('error service', error);
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error search client' },
+        data: { message: 'Error client client' },
       };
       return response;
     }

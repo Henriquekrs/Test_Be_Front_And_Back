@@ -20,6 +20,10 @@ class SequelizeClientModel extends Model<
   declare name: string;
 
   declare cpf: string;
+
+  declare enderecos?: SequelizeAdressModel[];
+
+  declare telefones?: SequelizePhoneModel[];
 }
 
 SequelizeClientModel.init(
