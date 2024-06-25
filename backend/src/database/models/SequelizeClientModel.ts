@@ -10,7 +10,6 @@ import db from '.';
 import SequelizeAdressModel from './SequelizeAdressModel';
 import SequelizePhoneModel from './SequelizePhoneModel';
 import SequelizeSalesModel from './SequelizeSalesModel';
-import SequelizeUserModel from './SequelizeUserModel';
 
 class SequelizeClientModel extends Model<
   InferAttributes<SequelizeClientModel>,
@@ -54,7 +53,7 @@ SequelizeClientModel.hasMany(SequelizeAdressModel, {
   as: 'enderecos',
 });
 SequelizeAdressModel.belongsTo(SequelizeClientModel, {
-  foreignKey: 'id',
+  foreignKey: 'clientId',
   as: 'cliente',
 });
 SequelizeClientModel.hasMany(SequelizePhoneModel, {
@@ -62,7 +61,7 @@ SequelizeClientModel.hasMany(SequelizePhoneModel, {
   as: 'telefones',
 });
 SequelizePhoneModel.belongsTo(SequelizeClientModel, {
-  foreignKey: 'id',
+  foreignKey: 'clientId',
   as: 'cliente',
 });
 SequelizeClientModel.hasMany(SequelizeSalesModel, {
@@ -70,7 +69,7 @@ SequelizeClientModel.hasMany(SequelizeSalesModel, {
   as: 'vendas',
 });
 SequelizeSalesModel.belongsTo(SequelizeClientModel, {
-  foreignKey: 'id',
+  foreignKey: 'clientId',
   as: 'cliente',
 });
 

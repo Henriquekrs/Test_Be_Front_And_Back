@@ -3,7 +3,13 @@ import { DataTypes, Model, QueryInterface } from 'sequelize';
 export default {
   up(queryInterface: QueryInterface) {
     return queryInterface.createTable<Model>('sales', {
-      clientId: {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      client_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -13,7 +19,7 @@ export default {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      productId: {
+      product_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -27,15 +33,15 @@ export default {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      precoUnitario: {
+      preco_unitario: {
         type: DataTypes.FLOAT,
         allowNull: false,
       },
-      precoTotal: {
+      preco_total: {
         type: DataTypes.FLOAT,
         allowNull: false,
       },
-      dataTime: {
+      data_time: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW,

@@ -9,4 +9,8 @@ router.get('/', (req: Request, res: Response) =>
   clientController.getAll(req, res)
 );
 
+router.get('/:id', (req: Request, res: Response) =>
+  clientController.getById(req, res)
+);
+
 export default router;

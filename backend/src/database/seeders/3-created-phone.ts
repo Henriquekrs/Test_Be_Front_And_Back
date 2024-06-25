@@ -7,11 +7,11 @@ export default {
       [
         {
           numero: '111-1111',
-          clientId: 1,
+          client_id: 1,
         },
         {
           numero: '222-2222',
-          clientId: 2,
+          client_id: 2,
         },
         // Adicione mais telefones conforme necessário
       ],

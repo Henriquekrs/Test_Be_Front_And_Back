@@ -10,6 +10,8 @@ class SequelizeSalesModel extends Model<
   InferAttributes<SequelizeSalesModel>,
   InferCreationAttributes<SequelizeSalesModel>
 > {
+  declare id: number;
+
   declare clientId: number;
 
   declare productId: number;
@@ -25,6 +27,12 @@ class SequelizeSalesModel extends Model<
 
 SequelizeSalesModel.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
     clientId: {
       type: DataTypes.INTEGER,
       allowNull: false,

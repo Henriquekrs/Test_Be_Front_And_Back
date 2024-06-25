@@ -29,7 +29,7 @@ export default {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      clientId: {
+      client_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
