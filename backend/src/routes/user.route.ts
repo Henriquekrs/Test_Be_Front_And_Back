@@ -10,8 +10,4 @@ router.post('/', validateInputs, (req: Request, res: Response) =>
   userController.create(req, res)
 );
 
-router.post('/', (req: Request, res: Response) => {
-  /* controller */
-});
-
 export default router;

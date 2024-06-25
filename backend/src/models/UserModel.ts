@@ -14,4 +14,13 @@ export default class UserModel implements IUserModel {
       return null;
     }
   }
+
+  async login(email: string): Promise<IUser | null> {
+    try {
+      const dbData = await this.model.findOne({ where: { email } });
+      return dbData;
+    } catch (error) {
+      return null;
+    }
+  }
 }

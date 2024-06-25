@@ -3,7 +3,14 @@ export type CreatedUser = {
   password: string;
 };
 
+export type ClientResponse = {
+  name: string;
+  cpf: string;
+};
+
 export type ServiceMessage = { message: string };
+
+export type TokenType = { token: string };
 
 type ServiceResponseErrorType =
   | 'BAD_REQUEST'

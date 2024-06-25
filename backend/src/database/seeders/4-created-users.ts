@@ -6,16 +6,16 @@ export default {
       'users',
       [
         {
-          email: 'usuario1@example.com',
+          email: 'teste1@teste.com',
           password:
-            '$2a$10$UetYgJnDjf75m75o5sWEeuvxTMfHgn1szX0EmK5MF00zm3UgayK/a.',
-          // A senha é 'Passqword1.'
+            '$2a$10$.7zydCQiL8S5wjVJw2U50.15wXiCF4RbSwyp/ag3aqQrQX3MPoIsu',
+          // A senha é 'Password1@'
         },
         {
-          email: 'usuario2@example.com',
+          email: 'teste2@teste.com',
           password:
-            '$2a$10$P2Ka6heAh6WhKTmC5vrwNuNf4JDQoyZcrR6V3RIR6RcK6jnGenUvq.',
-          // A senha é 'Passqword2.'
+            '$2a$10$cwET2.rqFvZTzNDizcxWGOCgqhm7MfEoEOJxNkzFmt0DcinhjggTm',
+          // A senha é 'Password2@'
         },
         // Adicione mais usuários conforme necessário
       ],
