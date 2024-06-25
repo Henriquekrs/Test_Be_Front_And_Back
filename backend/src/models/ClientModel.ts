@@ -117,4 +117,70 @@ export default class ClientModel implements IClientModel {
       throw error;
     }
   }
+
+  async update(
+    clientId: number,
+    clientData: ICreateClientParams
+  ): Promise<CreateClientResponse | undefined | null> {
+    const transaction = await db.transaction();
+    try {
+      await this.model.update(
+        {
+          name: clientData.name,
+          cpf: clientData.cpf,
+        },
+        {
+          where: { id: clientId },
+          transaction,
+        }
+      );
+
+      await SequelizeAdressModel.update(
+        {
+          ...clientData.address,
+        },
+        {
+          where: { clientId },
+          transaction,
+        }
+      );
+
+      await SequelizePhoneModel.destroy({
+        where: { clientId },
+        transaction,
+      });
+
+      for (const phone of clientData.phones) {
+        await SequelizePhoneModel.create(
+          {
+            numero: phone,
+            clientId,
+          },
+          { transaction }
+        );
+      }
+
+      await transaction.commit();
+
+      const fullClient = await this.model.findByPk(clientId, {
+        include: [
+          {
+            model: SequelizeAdressModel,
+            as: 'enderecos',
+            attributes: ['rua', 'cidade', 'estado', 'cep', 'pais'],
+          },
+          {
+            model: SequelizePhoneModel,
+            as: 'telefones',
+            attributes: ['numero'],
+          },
+        ],
+      });
+
+      return fullClient;
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
+    }
+  }
 }

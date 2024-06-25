@@ -17,4 +17,8 @@ router.post('/', (req: Request, res: Response) => {
   clientController.create(req, res);
 });
 
+router.put('/:id', (req: Request, res: Response) => {
+  clientController.update(req, res);
+});
+
 export default router;

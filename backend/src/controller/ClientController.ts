@@ -49,4 +49,23 @@ export default class ClientController {
       res.status(400).json({ message: 'Client not create' });
     }
   }
+
+  async update(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const clientData = req.body;
+
+      const clientId = parseInt(id, 10);
+
+      const serviceResponse = await this.clientService.update(
+        clientId,
+        clientData
+      );
+      return res
+        .status(mapStatusHTTP(serviceResponse.status))
+        .json(serviceResponse.data);
+    } catch (error) {
+      res.status(400).json({ message: 'Client not update' });
+    }
+  }
 }

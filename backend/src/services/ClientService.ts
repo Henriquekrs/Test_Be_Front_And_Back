@@ -1,7 +1,8 @@
-import { IClient } from '../interfaces/IClient';
+import { IClient, ICreateClientParams } from '../interfaces/IClient';
 import ClientModel from '../models/ClientModel';
 import {
   ClientResponse,
+  CreateClientResponse,
   ServiceResponse,
   ServiceResponseError,
   ServiceResponseSuccess,
@@ -61,7 +62,9 @@ export default class ClientService {
     }
   }
 
-  async create(clientData: any) {
+  async create(
+    clientData: ICreateClientParams
+  ): Promise<ServiceResponse<CreateClientResponse>> {
     try {
       const client = await this.clientModel.create(clientData);
       if (!client) {
@@ -70,7 +73,7 @@ export default class ClientService {
           data: { message: 'Client not found' },
         };
       }
-      const response = {
+      const response: ServiceResponseSuccess<CreateClientResponse> = {
         status: 'SUCCESSFUL',
         data: client,
       };
@@ -79,7 +82,33 @@ export default class ClientService {
       console.log('error service', error);
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error client client' },
+        data: { message: 'Error create client' },
+      };
+      return response;
+    }
+  }
+
+  async update(
+    clientId: number,
+    clientData: ICreateClientParams
+  ): Promise<ServiceResponse<CreateClientResponse>> {
+    try {
+      const client = await this.clientModel.update(clientId, clientData);
+      if (!client) {
+        return {
+          status: 'BAD_REQUEST',
+          data: { message: 'Client not found' },
+        };
+      }
+      const response: ServiceResponseSuccess<CreateClientResponse> = {
+        status: 'SUCCESSFUL',
+        data: client,
+      };
+      return response;
+    } catch (error) {
+      const response: ServiceResponseError = {
+        status: 'BAD_REQUEST',
+        data: { message: 'Error update client' },
       };
       return response;
     }

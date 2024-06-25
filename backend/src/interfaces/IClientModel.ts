@@ -11,4 +11,8 @@ export interface IClientModel {
   create(
     clientData: ICreateClientParams
   ): Promise<CreateClientResponse | undefined | null>;
+  update(
+    clientId: number,
+    clientData: ICreateClientParams
+  ): Promise<CreateClientResponse | undefined | null>;
 }
