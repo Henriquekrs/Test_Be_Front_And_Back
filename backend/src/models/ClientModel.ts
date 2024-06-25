@@ -183,4 +183,13 @@ export default class ClientModel implements IClientModel {
       throw error;
     }
   }
+
+  async delete(clientId: number): Promise<boolean> {
+    try {
+      await this.model.destroy({ where: { id: clientId } });
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
 }

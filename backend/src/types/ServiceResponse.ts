@@ -43,6 +43,10 @@ export type ServiceResponseSuccess<T> = {
   data: T;
 };
 
+export type ServiceResponseDelete = {
+  message: string;
+};
+
 export type ServiceResponseError = {
   status: ServiceResponseErrorType;
   data: ServiceMessage;

@@ -68,4 +68,19 @@ export default class ClientController {
       res.status(400).json({ message: 'Client not update' });
     }
   }
+
+  async delete(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+
+      const clientId = parseInt(id, 10);
+
+      const serviceResponse = await this.clientService.delete(clientId);
+      return res
+        .status(mapStatusHTTP(serviceResponse.status))
+        .json(serviceResponse.data);
+    } catch (error) {
+      res.status(400).json({ message: 'Client not delete' });
+    }
+  }
 }

@@ -4,6 +4,7 @@ import {
   ClientResponse,
   CreateClientResponse,
   ServiceResponse,
+  ServiceResponseDelete,
   ServiceResponseError,
   ServiceResponseSuccess,
 } from '../types/ServiceResponse';
@@ -109,6 +110,31 @@ export default class ClientService {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
         data: { message: 'Error update client' },
+      };
+      return response;
+    }
+  }
+
+  async delete(
+    clientId: number
+  ): Promise<ServiceResponse<ServiceResponseDelete>> {
+    try {
+      const client = await this.clientModel.delete(clientId);
+      if (!client) {
+        return {
+          status: 'BAD_REQUEST',
+          data: { message: 'Client not found' },
+        };
+      }
+      const response: ServiceResponseSuccess<ServiceResponseDelete> = {
+        status: 'SUCCESSFUL',
+        data: { message: 'Client deleted with success' },
+      };
+      return response;
+    } catch (error) {
+      const response: ServiceResponseError = {
+        status: 'BAD_REQUEST',
+        data: { message: 'Error delete client' },
       };
       return response;
     }
