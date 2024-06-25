@@ -9,4 +9,8 @@ router.get('/', (req: Request, res: Response) =>
   productController.getAll(req, res)
 );
 
+router.get('/:id', (req: Request, res: Response) =>
+  productController.getById(req, res)
+);
+
 export default router;
