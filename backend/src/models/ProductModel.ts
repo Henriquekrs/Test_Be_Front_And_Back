@@ -27,4 +27,13 @@ export default class ProductModel implements IProductModel {
       return null;
     }
   }
+
+  async create(product: IProduct): Promise<IProduct | null> {
+    try {
+      const dbData = await this.model.create(product);
+      return dbData;
+    } catch (error) {
+      return null;
+    }
+  }
 }

@@ -27,4 +27,16 @@ export default class ProductController {
       res.status(400).json({ message: 'Data not found' });
     }
   }
+
+  async create(req: Request, res: Response) {
+    const product = req.body;
+    try {
+      const serviceResponse = await this.productService.create(product);
+      return res
+        .status(mapStatusHTTP(serviceResponse.status))
+        .json(serviceResponse.data);
+    } catch (error) {
+      res.status(400).json({ message: 'Data not found' });
+    }
+  }
 }

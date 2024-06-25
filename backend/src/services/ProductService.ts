@@ -54,4 +54,27 @@ export default class ProductService {
       return response;
     }
   }
+
+  async create(product: IProduct): Promise<ServiceResponse<IProduct>> {
+    try {
+      const newProduct = await this.productModel.create(product);
+      if (!newProduct) {
+        return {
+          status: 'BAD_REQUEST',
+          data: { message: 'Data not created' },
+        };
+      }
+      const response: ServiceResponseSuccess<IProduct> = {
+        status: 'SUCCESSFUL',
+        data: newProduct,
+      };
+      return response;
+    } catch (error) {
+      const response: ServiceResponseError = {
+        status: 'BAD_REQUEST',
+        data: { message: 'Error internal' },
+      };
+      return response;
+    }
+  }
 }
