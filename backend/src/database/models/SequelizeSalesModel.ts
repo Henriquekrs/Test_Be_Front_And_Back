@@ -3,6 +3,7 @@ import {
   Model,
   InferAttributes,
   InferCreationAttributes,
+  CreationOptional,
 } from 'sequelize';
 import db from '.';
 
@@ -10,7 +11,7 @@ class SequelizeSalesModel extends Model<
   InferAttributes<SequelizeSalesModel>,
   InferCreationAttributes<SequelizeSalesModel>
 > {
-  declare id: number;
+  declare id: CreationOptional<number>;
 
   declare clientId: number;
 
@@ -62,6 +63,7 @@ SequelizeSalesModel.init(
   {
     sequelize: db,
     modelName: 'sales',
+    tableName: 'sales',
     underscored: true,
     timestamps: false,
   }

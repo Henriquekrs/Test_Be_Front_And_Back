@@ -1,9 +1,9 @@
 export interface ISales {
-  id: number;
+  id?: number;
   clientId: number;
   productId: number;
   quantidade: number;
   precoUnitario: number;
   precoTotal: number;
-  dataTime: string;
+  dataTime?: Date;
 }

@@ -11,7 +11,6 @@ export default class ProductModel implements IProductModel {
         order: [['nome', 'ASC']],
         attributes: { exclude: ['id', 'deletedAt', 'createdAt', 'updatedAt'] },
       });
-      console.log(dbData);
       return dbData;
     } catch (error) {
       return null;
