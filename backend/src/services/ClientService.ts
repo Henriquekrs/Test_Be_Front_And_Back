@@ -80,7 +80,6 @@ export default class ClientService {
       };
       return response;
     } catch (error) {
-      console.log('error service', error);
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
         data: { message: 'Error create client' },

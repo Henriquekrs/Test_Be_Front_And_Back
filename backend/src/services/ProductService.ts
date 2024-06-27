@@ -78,6 +78,7 @@ export default class ProductService {
       return response;
     }
   }
+
   async update(
     id: string,
     product: IProduct
@@ -117,7 +118,7 @@ export default class ProductService {
       }
       const response: ServiceResponseSuccess<ServiceResponseDelete> = {
         status: 'SUCCESSFUL',
-        data: { message: 'Data successful deleted' },
+        data: { message: 'Product successful deleted' },
       };
       return response;
     } catch (error) {
