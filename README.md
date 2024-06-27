@@ -136,7 +136,7 @@ Passos para iniciar e usar o projeto:
 
 - A API conta com 5 fluxos principais:
 
-1. User (Cadastro de pessoas usuarias)
+## 1. User (Cadastro de pessoas usuarias)
 
 - Permite cadastro de pessoas usuarias.
 
@@ -149,7 +149,7 @@ Passos para iniciar e usar o projeto:
   }
   ```
 
-2. Login (Permite login com usuário cadastrado)
+## 2. Login (Permite login com usuário cadastrado)
 
 - Faça o login de um usuario existente previamente cadastrado.
 
@@ -164,7 +164,7 @@ Passos para iniciar e usar o projeto:
   //salve o token pois ele será necessário para acessar as outras rotas
   ```
 
-3. Client (Clientes)
+## 3. Client (Clientes)
 
 - Busque todos clientes cadastrados.
 
@@ -228,7 +228,7 @@ Passos para iniciar e usar o projeto:
 
   ```
 
-4. Product (Produtos)
+## 4. Product (Produtos)
 
 - Busque todos os produtos cadastrados.
 
@@ -273,7 +273,7 @@ Passos para iniciar e usar o projeto:
 
   ```
 
-5. Sales (Vendas)
+## 5. Sales (Vendas)
 
 - Busque todas as vendas cadastradas.
 
