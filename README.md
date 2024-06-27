@@ -292,7 +292,7 @@ Passos para iniciar e usar o projeto:
     "quantidade": 2,
     "precoUnitario": 1000,
     "precoTotal": 2000,
-  };
+  }
   ```
 
 ## Contato
