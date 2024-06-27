@@ -124,10 +124,12 @@ Passos para iniciar e usar o projeto:
 ### ⌨️ Exemplos de uso
 
 - Para utilização rode os seguintes comandos:
+
   ```bash
-  cd backend/              e preciso estar dentro do diretorio backend para rodar os proximos comandos
-  npm run db:reset         garante que o banco de dados será criado do zero e populado com dados básicos
+  cd backend/              //e preciso estar dentro do diretorio backend para rodar os proximos comandos
+  npm run db:reset         //garante que o banco de dados será criado do zero e populado com dados básicos
   ```
+  
 - As funcionalidades podem ser utilizadas através da extensão do VSCode ThunderClient ou similar.
 
 ### ➡️ Rotas disponiveis ⬅️
