@@ -121,7 +121,7 @@ Passos para iniciar e usar o projeto:
 
 - Esses serviços irão inicializar um contêiner chamado `test_be_api` e outro chamado `test_be_db`;
 
-### Exemplos de uso
+### ⌨️ Exemplos de uso
 
 - Para utilização rode os seguintes comandos:
   ```bash
