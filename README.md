@@ -14,13 +14,13 @@ Tenho muita satisfação em dizer que concluí com sucesso o teste técnico de b
 
 ## Instruções de instalação e uso
 
-### Pré-requisitos
+### ‼️ Pré-requisitos
 
 - **Node.js** (versão 18.19.0)
 - **npm** (versão 10.2.3)
 - **Docker** (versão 27.07.1)
 
-### Instalação
+### 🛠 Instalação
 
 #### Docker
 
@@ -110,7 +110,7 @@ Tenho muita satisfação em dizer que concluí com sucesso o teste técnico de b
    npm install
    ```
 
-### Uso
+### 💻 Uso
 
 Passos para iniciar e usar o projeto:
 
