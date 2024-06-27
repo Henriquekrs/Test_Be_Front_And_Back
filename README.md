@@ -168,7 +168,7 @@ Passos para iniciar e usar o projeto:
 
 - Busque todos clientes cadastrados.
 
-- ⚠️ Este paço abaixo sera necessario em todas as todas proximas rotas. ⚠️
+- ⚠️ Este paço abaixo será necessário em todas as rotas abaixo. ⚠️
 - Cole o Token gerado no login na parte de Headers incluindo a chave Bearer seguido do token como na imagem abaixo.
 
   ![Exemplo de uso do Token](/assets/Token_Bearer.png)
