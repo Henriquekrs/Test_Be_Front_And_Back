@@ -16,9 +16,9 @@ Tenho muita satisfação em dizer que concluí com sucesso o teste técnico de b
 
 ### Pré-requisitos
 
-- **Node.js** (versão X.X.X)
-- **npm** (versão X.X.X)
-- **Docker**
+- **Node.js** (versão 18.19.0)
+- **npm** (versão 10.2.3)
+- **Docker** (versão 27.07.1)
 
 ### Instalação
 
@@ -197,7 +197,7 @@ Passos para iniciar e usar o projeto:
       "pais": "Londres",
     },
     "phones": ["7123-343-09", "7121-343-02"],
-  };
+  }
   ```
 
 - Altere os dados de um cliente.
@@ -216,7 +216,7 @@ Passos para iniciar e usar o projeto:
      "pais": "Londres",
    },
    "phones": ["7123-343-09", "7121-343-02"],
-  };
+  }
   ```
 
 - Exclua um cliente.
