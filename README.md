@@ -9,7 +9,7 @@ Tenho muita satisfação em dizer que concluí com sucesso o teste técnico de b
 - **Docker**: Grande facilidade na utilização de vários serviços de forma simultânea utilizando contêineres.
 - **Sequelize**: fácil configuração e trouxe grandes benefícios ao trabalhar com banco de dados relacional.
 - **JWT**: simplicidade no uso e grande utilidade no uso do payload para passar informações não sensíveis.
-- **bcript**: A segurança de dados e muito importante e esta ferramenta cumpre muito bem seu proposito facilitando a manipulação de dados sensíveis.
+- **Bcript**: A segurança de dados e muito importante e esta ferramenta cumpre muito bem seu proposito facilitando a manipulação de dados sensíveis.
 - **express**: muito útil pela facilidade de gerenciar rotas e facilidade de integração com outras ferramentas.
 
 ## Instruções de instalação e uso
