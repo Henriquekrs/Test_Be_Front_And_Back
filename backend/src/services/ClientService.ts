@@ -29,7 +29,7 @@ export default class ClientService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error searching for client' },
       };
       return response;
     }
@@ -57,7 +57,7 @@ export default class ClientService {
       console.error('Error in ClientService.getById:', error);
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error search client' },
+        data: { message: 'Error searching for a client' },
       };
       return response;
     }
@@ -82,7 +82,7 @@ export default class ClientService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error create client' },
+        data: { message: 'Error creating client' },
       };
       return response;
     }
@@ -108,7 +108,7 @@ export default class ClientService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error update client' },
+        data: { message: 'Error changing client' },
       };
       return response;
     }
@@ -133,7 +133,7 @@ export default class ClientService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error delete client' },
+        data: { message: 'Error deleting client' },
       };
       return response;
     }

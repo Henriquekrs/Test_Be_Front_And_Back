@@ -27,7 +27,7 @@ export default class SalesService {
       console.error('Error in SalesService.create: ', error);
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error creating sale' },
       };
       return response;
     }
@@ -51,7 +51,7 @@ export default class SalesService {
       console.error('Error in SalesService.getAll: ', error);
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error searching for sale' },
       };
       return response;
     }

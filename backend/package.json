@@ -5,9 +5,11 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "tsnd --watch \"./src/**\" --transpile-only ./src/server.ts",
+    "predev": "npx tsc && npm run db:reset",
     "test": "mocha -r ts-node/register src/tests/**/**/*.test.ts --exit -t 60000 --exit",
     "test:coverage": "nyc mocha -r ts-node/register src/tests/**/**/*.test.ts --exit -t 60000",
     "start": "tsnd src/server.ts",
+    "prestart": "npm run db:reset",
     "docker:dev": "docker-compose up --build",
     "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },

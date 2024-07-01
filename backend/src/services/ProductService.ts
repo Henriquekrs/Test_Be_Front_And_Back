@@ -27,7 +27,7 @@ export default class ProductService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error searching for product' },
       };
       return response;
     }
@@ -50,7 +50,7 @@ export default class ProductService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error searching for a product' },
       };
       return response;
     }
@@ -73,7 +73,7 @@ export default class ProductService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error creating product' },
       };
       return response;
     }
@@ -99,7 +99,7 @@ export default class ProductService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error changing product' },
       };
       return response;
     }
@@ -124,7 +124,7 @@ export default class ProductService {
     } catch (error) {
       const response: ServiceResponseError = {
         status: 'BAD_REQUEST',
-        data: { message: 'Error internal' },
+        data: { message: 'Error deleting product' },
       };
       return response;
     }
