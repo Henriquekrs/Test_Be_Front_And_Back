@@ -1,18 +1,18 @@
-# Teste Técnico Be
+# Teste Técnico Be Backend
 
-Tenho muita satisfação em dizer que concluí com sucesso o teste técnico de backend. Todos os requisitos descritos foram implementados como pedido. Algumas decisões que tomei foram baseadas em uma estrutura que possibilitasse fácil abstração do funcionamento, facilitando a implementação de novas funcionalidades e manutenibilidade. Tive algumas dificuldades em construir um ambiente que facilitasse a alteração ou atualização para outra tecnologia (como Prisma ou SQLite), adaptando o mínimo de código possível. Acredito que fiz um bom trabalho. Criei testes para todas as rotas na tentativa de cobrir a maior parte da aplicação, prevenindo erros ou bugs inesperados e facilitando a implementação de novas funcionalidades, garantindo que a base continue sólida.
+Tenho muita satisfação em dizer que concluí com sucesso o teste técnico de backend. Todos os requisitos descritos foram implementados como pedido. Algumas decisões que tomei foram baseadas em uma estrutura que possibilitasse fácil abstração do funcionamento, facilitando a implementação de novas funcionalidades e manutenibilidade. Tive algumas dificuldades em construir um ambiente que facilitasse a alteração ou atualização para outra tecnologia (como Prisma ou SQLite), adaptando o mínimo de código possível. Acredito que fiz um bom trabalho. Criei testes para todas as rotas na tentativa de cobrir a maioria da aplicação, prevenindo erros ou bugs inesperados e facilitando a implementação de novas funcionalidades, garantindo que a base continue sólida.
 
-## Principais linguagens e tecnologias utilizadas
+## Principais linguagens e tecnologias utilizadas.
 
-- **TypeScript**: Sua versatilidade contribui diretamente para o bom funcionamento da API, garantindo que informações são transmitidas e recebidas seguindo um padrão.
+- **TypeScript**: sua versatilidade contribui diretamente para o bom funcionamento da API, garantindo que informações são transmitidas e recebidas seguindo um padrão.
 - **POO**: Organização, clareza e manutenibilidade definem os principais benefícios de ter usado Programação orientada a Objetos neste projeto.
-- **Docker**: Grande facilidade na utilização de vários serviços de forma simultânea utilizando contêineres.
+- **Docker**: grande facilidade na utilização de vários serviços de forma simultânea utilizando contêineres.
 - **Sequelize**: fácil configuração e trouxe grandes benefícios ao trabalhar com banco de dados relacional.
 - **JWT**: simplicidade no uso e grande utilidade no uso do payload para passar informações não sensíveis.
 - **Bcript**: A segurança de dados e muito importante e esta ferramenta cumpre muito bem seu proposito facilitando a manipulação de dados sensíveis.
 - **express**: muito útil pela facilidade de gerenciar rotas e facilidade de integração com outras ferramentas.
 
-## Instruções de instalação e uso
+## Instruções de uso e instalação
 
 ### ‼️ Pré-requisitos
 
@@ -20,117 +20,21 @@ Tenho muita satisfação em dizer que concluí com sucesso o teste técnico de b
 - **npm** (versão 10.2.3)
 - **Docker** (versão 27.07.1)
 
-### 🛠 Instalação
-
-#### Docker
-
-1. Baixe e instale o Docker do site oficial:[Docker](https://www.docker.com/get-started/)
-
-2. Verifique a instalação do Docker:
-   ```bash
-   docker --version
-   docker-compose --version
-   ```
-
-#### Ubuntu
-
-1. Atualize o sistema e instale Node.js e npm:
-
-   ```bash
-   sudo apt update
-   sudo apt install nodejs npm
-   ```
-
-2. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/Henriquekrs/Test_Tec_Be_Backand
-   ```
-
-3. Navegue até o diretório do projeto:
-
-   ```bash
-   cd nome-do-repositório
-   ```
-
-4. Instale as dependências:
-   ```bash
-   npm install
-   ```
-
-#### Windows
-
-1. Baixe e instale o Node.js e npm do site oficial: [Node.js](https://nodejs.org/)
-
-2. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/Henriquekrs/Test_Tec_Be_Backand
-   ```
-
-3. Navegue até o diretório do projeto:
-
-   ```cmd
-   cd nome-do-repositório
-   ```
-
-4. Instale as dependências:
-   ```cmd
-   npm install
-   ```
-
-#### macOS
-
-1. Instale o Homebrew (se ainda não tiver):
-
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-2. Use o Homebrew para instalar Node.js e npm:
-
-   ```bash
-   brew install node
-   ```
-
-3. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/Henriquekrs/Test_Tec_Be_Backand
-   ```
-
-4. Navegue até o diretório do projeto:
-
-   ```bash
-   cd nome-do-repositório
-   ```
-
-5. Instale as dependências:
-   ```bash
-   npm install
-   ```
-
 ### 💻 Uso
 
-Passos para iniciar e usar o projeto:
+Siga estes passos para iniciar e usar o projeto:
 
 1. Inicie o servidor de desenvolvimento:
+
    ```bash
    npm run compose:up
    ```
 
-- Esses serviços irão inicializar um contêiner chamado `test_be_api` e outro chamado `test_be_db`;
+- Este comando ira inicializar dois contêineres: `test_be_api` e `test_be_db`;
+
+- As funcionalidades podem ser utilizadas através da extensão do VSCode ThunderClient ou similar.
 
 ### ⌨️ Exemplos de uso
-
-- Para utilização rode os seguintes comandos:
-
-  ```bash
-  cd backend/              //e preciso estar dentro do diretorio backend para rodar os proximos comandos
-  npm run db:reset         //garante que o banco de dados será criado do zero e populado com dados básicos
-  ```
-  
-- As funcionalidades podem ser utilizadas através da extensão do VSCode ThunderClient ou similar.
 
 ### ➡️ Rotas disponiveis ⬅️
 
@@ -151,10 +55,10 @@ Passos para iniciar e usar o projeto:
 
 ## 2. Login (Permite login com usuário cadastrado)
 
-- Faça o login de um usuario existente previamente cadastrado.
+- Faça o login de um usuário existente previamente cadastrado.
 
   ```json
-  //Exemplo faça uma requisição POST para /login com usuario criado acima:
+  //Exemplo faça uma requisição POST para /login com usuário criado acima:
 
   {
     "email": "teste3@teste.com",
@@ -294,6 +198,96 @@ Passos para iniciar e usar o projeto:
     "precoTotal": 2000,
   }
   ```
+
+### 🛠 Instalação
+
+#### Docker
+
+1. Baixe e instale o Docker do site oficial:[Docker](https://www.docker.com/get-started/)
+
+2. Verifique a instalação do Docker:
+   ```bash
+   docker --version
+   docker-compose --version
+   ```
+
+#### Ubuntu
+
+1. Atualize o sistema e instale Node.js e npm:
+
+   ```bash
+   sudo apt update
+   sudo apt install nodejs npm
+   ```
+
+2. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/Henriquekrs/Test_Tec_Be_Backand
+   ```
+
+3. Navegue até o diretório do projeto:
+
+   ```bash
+   cd nome-do-repositório
+   ```
+
+4. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+#### Windows
+
+1. Baixe e instale o Node.js e npm do site oficial: [Node.js](https://nodejs.org/)
+
+2. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/Henriquekrs/Test_Tec_Be_Backand
+   ```
+
+3. Navegue até o diretório do projeto:
+
+   ```cmd
+   cd nome-do-repositório
+   ```
+
+4. Instale as dependências:
+   ```cmd
+   npm install
+   ```
+
+#### macOS
+
+1. Instale o Homebrew (se ainda não tiver):
+
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+2. Use o Homebrew para instalar Node.js e npm:
+
+   ```bash
+   brew install node
+   ```
+
+3. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/Henriquekrs/Test_Tec_Be_Backand
+   ```
+
+4. Navegue até o diretório do projeto:
+
+   ```bash
+   cd nome-do-repositório
+   ```
+
+5. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
 ## Contato
 
